@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/chocolates")
+@RequestMapping(value = "chocolates")
 public class ChocolateController {
 
     @Autowired
@@ -23,11 +23,10 @@ public class ChocolateController {
         return new ResponseEntity<>(savedChocolate, HttpStatus.CREATED);
     }
 
-    @GetMapping (value = "/chocolates")
+    //Index, to GET in Postman.
+    @GetMapping
     public ResponseEntity<List<Chocolate>> getAllChocolates(){
-        List<Chocolate> chocolates =chocolateService.getAllChocolates();
-        return new ResponseEntity<>(chocolates, HttpStatus.OK);
+        return new ResponseEntity(chocolateService.getAllChocolates(), HttpStatus.OK);
     }
-
 
 } //Last curly bracket

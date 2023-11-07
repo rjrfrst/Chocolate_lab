@@ -13,18 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/estates")
+@RequestMapping(value = "estates")
 public class EstateController {
 
     @Autowired
     EstateService estateService;
 
-    @GetMapping (value = "/estates")
+    //Index
+    @GetMapping
     public ResponseEntity<List<Estate>> getAllEstates(){
-        List<Estate> estates = estateService.getAllEstates();
-        return new ResponseEntity<>(estates, HttpStatus.OK);
+        return new ResponseEntity(estateService.getAllEstates(), HttpStatus.OK);
     }
-
-
 
 } //Last Curly Bracket

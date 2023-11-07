@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataLoader implements ApplicationRunner {
 
-
     @Autowired
     ChocolateService chocolateService;
     @Autowired
@@ -27,17 +26,19 @@ public class DataLoader implements ApplicationRunner {
 
 
     public void run(ApplicationArguments args){
+        //One
         Estate estateOne = new Estate("ChocoOne", "PH");
-        Estate estateTwo = new Estate("ChocoTwo", "JP");
-
         estateService.saveEstate(estateOne);
+
+        Chocolate chocolateOne = new Chocolate("Chocolate", 20, estateOne);
+        chocolateService.saveChocolate(chocolateOne);
+
+        //Two
+        Estate estateTwo = new Estate("ChocoTwo", "JP");
         estateService.saveEstate(estateTwo);
 
 
-        Chocolate chocolateOne = new Chocolate("Chocolate", 20, estateOne);
         Chocolate chocolateTwo = new Chocolate("Milk chocolate", 10, estateTwo);
-
-        chocolateService.saveChocolate(chocolateOne);
         chocolateService.saveChocolate(chocolateTwo);
 
 

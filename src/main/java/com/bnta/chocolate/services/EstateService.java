@@ -13,18 +13,12 @@ public class EstateService {
 
     @Autowired
     EstateRepository estateRepository;
-
     @Autowired
     ChocolateService chocolateService;
-
     //
     public Optional<Estate> getEstateByID(long id){
         return estateRepository.findById(id);
     }
-
-    //we can look here for all the completedEstates???
-    //is it possible to use the components?
-
 
     //Get all estates
     public List<Estate> getAllEstates(){
@@ -36,7 +30,6 @@ public class EstateService {
         estateRepository.save(estate);
         return estate;
     }
-
 
 
 }//Last curly bracket

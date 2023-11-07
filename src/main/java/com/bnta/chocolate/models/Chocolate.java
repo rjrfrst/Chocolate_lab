@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Table(name = "chocolate")
 public class Chocolate {
 
-
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,8 +18,9 @@ public class Chocolate {
     @Column
     private int cocoaPercentage;
 
-    //One estate can have many chocolates
-    //This is the foreign key, therefore many to one
+    //One estate can have many chocolates.
+    //This is the foreign key, therefore many to one.
+    //One estate can produce many chocolate.
     @ManyToOne
     @JoinColumn(name = "estate_id")
     @JsonIgnoreProperties ({"chocolates"})
